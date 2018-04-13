@@ -25,7 +25,7 @@ var paused = false;
 var currentPosition = {left: 0, section: 0, p: 0};
 var book = {sections: []};
 var speed = 1;
-const INITIAL_MERGE = 100;
+const INITIAL_MERGE = main_windowStyler.get('width');
 
 /// saved model
 var savedPosition = localStorage.getItem('fb2reader_position');
