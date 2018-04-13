@@ -124,6 +124,7 @@ to_begin.addEventListener('click', (e) =>
     currentPosition.section = 0;
     txt.innerHTML = book.sections[currentPosition.section].p[currentPosition.p];
     txtStyler.set('left', currentPosition.left);
+    section_title.innerText = book.sections[currentPosition.section].title ? book.sections[currentPosition.section].title.trim() : "";
 });
 
 to_end.addEventListener('click', (e) =>
@@ -133,6 +134,7 @@ to_end.addEventListener('click', (e) =>
     txt.innerHTML = book.sections[currentPosition.section].p[currentPosition.p];
     currentPosition.left = -1 * (txtStyler.get('width') - main_windowStyler.get('width'));
     txtStyler.set('left', currentPosition.left);
+    section_title.innerText = book.sections[currentPosition.section].title ? book.sections[currentPosition.section].title.trim() : "";
 });
 
 next_chapter.addEventListener('click', (e) =>
