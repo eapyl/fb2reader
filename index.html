@@ -1,36 +1,37 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="skeleton.css">
-        <style>
+
+<head>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="skeleton.css">
+    <style>
         * {
             text-align: center;
         }
 
-        .marquee { 
-            color:black; 
+        .marquee {
+            color: black;
             background: #F1F1F1;
             border: 1px solid #E1E1E1;
             border-radius: 4px;
-            height:120px;
+            height: 120px;
             margin: auto;
-            line-height:120px;
-            overflow:hidden;
-            position:relative;
+            line-height: 120px;
+            overflow: hidden;
+            position: relative;
             margin-bottom: 1rem;
         }
 
         .text {
-            position:absolute;
-            top:0;
+            position: absolute;
+            top: 0;
             font-size: 3.2rem;
             white-space: nowrap;
-            height:120px;
+            height: 120px;
             -moz-user-select: none;
             -webkit-user-select: none;
-            -ms-user-select:none;
-            user-select:none;
-            -o-user-select:none;
+            -ms-user-select: none;
+            user-select: none;
+            -o-user-select: none;
         }
 
         #drop-zone {
@@ -43,55 +44,78 @@
         button {
             margin-right: 1rem;
         }
-        </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Yauhen Pyl">
-        <meta name="keywords" content="fb2, reader, javascript">
-        <meta name="description" content="Allows to read fb2 books without any additional stuff.">
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div id="book-title"></div>
-                <div id="section-title"></div>
-                <div class="marquee">
-                    <div class="text" unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
-                </div>
-                <table class="u-full-width">
-                    <thead>
-                        <tr>
-                            <th>Level</th>
-                            <th>Controls</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Reading</td>
-                            <td><button class="button-primary" id="pause">Pause</button></td>
-                        </tr>
-                        <tr>
-                            <td>Speed</td>
-                            <td><button id="speed-down">Down</button><button class="button-primary" id="speed-up">Up</button></td>
-                        </tr>
-                        <tr>
-                            <td>Paragraph</td>
-                            <td><button id="prev-paragraph">Previous</button><button class="button-primary" id="next-paragraph">Next</button></td>
-                        </tr>
-                        <tr>
-                            <td>Chapter</td>
-                            <td><button id="prev-chapter">Previous</button><button class="button-primary" id="next-chapter">Next</button></td>
-                        </tr>
-                        <tr>
-                            <td>Book</td>
-                            <td><button id="to-begin">Begin</button><button class="button-primary" id="to-end">End</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div id="drop-zone">Drag fb2 file here or <a href="" onclick="document.getElementById('upload').click(); return false">Upload it</a></div>
-                <input type="file" id="upload" name="upload" style="visibility: hidden; width: 1px; height: 1px" multiple />
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yauhen Pyl">
+    <meta name="keywords" content="fb2, reader, javascript">
+    <meta name="description" content="Allows to read fb2 books without any additional stuff.">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="book-title"></div>
+            <div id="section-title"></div>
+            <div class="marquee">
+                <div class="text" unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
             </div>
+            <div class="row">
+                <div class="one-half column">
+                    <table class="u-full-width">
+                        <tbody>
+                            <tr>
+                                <td>Reading</td>
+                                <td>
+                                    <button class="button-primary" id="pause">Pause</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Speed</td>
+                                <td>
+                                    <button id="speed-down">Down</button>
+                                    <button class="button-primary" id="speed-up">Up</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="one-half column">
+                    <table class="u-full-width">
+                        <tbody>
+                            <tr>
+                                <td>Paragraph</td>
+                                <td>
+                                    <button id="prev-paragraph">Previous</button>
+                                    <button class="button-primary" id="next-paragraph">Next</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Chapter</td>
+                                <td>
+                                    <button id="prev-chapter">Previous</button>
+                                    <button class="button-primary" id="next-chapter">Next</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Book</td>
+                                <td>
+                                    <button id="to-begin">Begin</button>
+                                    <button class="button-primary" id="to-end">End</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="drop-zone">Drag fb2 file here or
+                <a href="" onclick="document.getElementById('upload').click(); return false">Upload it</a>
+            </div>
+            <input type="file" id="upload" name="upload" style="visibility: hidden; width: 1px; height: 1px" multiple />
         </div>
-        <script src="popmotion.global.min.js"></script>
-        <script src="index.js"></script>
-    </body>
+    </div>
+    <script src="popmotion.global.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
 </html>
