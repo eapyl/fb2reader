@@ -27,7 +27,7 @@ var book = {sections: []};
 var speed = 1;
 const INITIAL_MERGE = main_windowStyler.get('width');
 
-/// saved model
+/// SAVED MODEL
 var savedPosition = localStorage.getItem('fb2reader_position');
 var savedBook = localStorage.getItem('fb2reader_book');
 var savedSpeed = localStorage.getItem('fb2reader_speed');
