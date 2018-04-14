@@ -49,7 +49,7 @@ if (savedBook && savedPosition)
             currentPosition.section = 0;
         }
 
-        if (currentPosition.p >= book.sections[currentPosition.section].length - 1)
+        if (currentPosition.p >= book.sections[currentPosition.section].p.length - 1)
         {
             currentPosition.p = 0;
         }
@@ -205,10 +205,10 @@ var movingUsingMouse = false;
 var movingUsingTouch = false;
 
 main_window.addEventListener('mousedown', mouseDown);
-main_window.addEventListener('touchstart', touchStart);
+main_window.addEventListener('touchstart', touchStart, {passive: true});
 
 document.body.addEventListener('mouseup', mouseUp);
-main_window.addEventListener('touchend', touchEnd);
+main_window.addEventListener('touchend', touchEnd, {passive: true});
 
 /// PRIVATE FUNCTIONS
 function loadFiles(files)
@@ -319,7 +319,7 @@ function touchStart(e)
     paused = true;
     mx = e.changedTouches[0].pageX;
     tempPosition = txtStyler.get('left');
-    main_window.addEventListener('touchmove', touchMove);
+    main_window.addEventListener('touchmove', touchMove, {passive: true});
 }
 
 function touchEnd(e)
