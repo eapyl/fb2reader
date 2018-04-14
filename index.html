@@ -4,9 +4,6 @@
         <link rel="stylesheet" href="skeleton.css">
         <style>
         * {
-            margin:0;
-            padding:0;
-            border:0;
             text-align: center;
         }
 
@@ -52,8 +49,8 @@
     <body>
         <div class="container">
             <div class="row">
-                <h5 id="book-title">Title</h5>
-                <h6 id="section-title"></h6>
+                <div id="book-title"></div>
+                <div id="section-title"></div>
                 <div class="marquee">
                     <div class="text" unselectable="on" onselectstart="return false;" onmousedown="return false;"></div>
                 </div>
@@ -87,9 +84,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div>
-                    <div id="drop-zone">Drag fb2 file here or <a href="" onclick="document.getElementById('upload').click(); return false">Upload it</a></div>
-                </div>
+                <div id="drop-zone">Drag fb2 file here or <a href="" onclick="document.getElementById('upload').click(); return false">Upload it</a></div>
                 <input type="file" id="upload" name="upload" style="visibility: hidden; width: 1px; height: 1px" multiple />
             </div>
         </div>
