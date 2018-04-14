@@ -44,6 +44,12 @@
         button {
             margin-right: 1rem;
         }
+
+        #upload {
+            visibility: hidden;
+            width: 1px;
+            height: 1px
+        }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Yauhen Pyl">
@@ -107,11 +113,11 @@
                     </table>
                 </div>
             </div>
-
             <div id="drop-zone">Drag fb2 file here or
                 <a href="" onclick="document.getElementById('upload').click(); return false">Upload it</a>
             </div>
-            <input type="file" id="upload" name="upload" style="visibility: hidden; width: 1px; height: 1px" multiple />
+            <input type="file" id="upload" name="upload"/>
+            <a class="u-pull-right" href="https://github.com/eapyl/fb2reader/issues">Questions</a>
         </div>
     </div>
     <script src="popmotion.global.min.js"></script>
