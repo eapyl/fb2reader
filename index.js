@@ -202,26 +202,13 @@ drop_zone.addEventListener('drop', function(e) {
 var mx = 0;
 var tempPosition = 0;
 var movingUsingMouse = false;
+var movingUsingTouch = false;
 
-main_window.addEventListener('mousedown', (e) =>
-{
-    movingUsingMouse = true;
-    paused = true;
-    mx = e.pageX;
-    tempPosition = txtStyler.get('left');
-    main_window.addEventListener('mousemove', mouseMove);
-});
+main_window.addEventListener('mousedown', mouseDown);
+main_window.addEventListener('touchstart', touchStart);
 
-document.body.addEventListener('mouseup', (e) =>
-{
-    if (movingUsingMouse)
-    {
-        main_window.removeEventListener('mousemove', mouseMove);
-        paused = false;
-        tempPosition = 0;
-        movingUsingMouse = false;
-    }
-});
+document.body.addEventListener('mouseup', mouseUp);
+main_window.addEventListener('touchend', touchEnd);
 
 /// PRIVATE FUNCTIONS
 function loadFiles(files)
@@ -294,4 +281,54 @@ function mouseMove(e)
         txtStyler.set('left', tempPosition-=15);
     }
     mx = e.pageX;
+}
+
+function mouseDown(e)
+{
+    movingUsingMouse = true;
+    paused = true;
+    mx = e.pageX;
+    tempPosition = txtStyler.get('left');
+    main_window.addEventListener('mousemove', mouseMove);
+}
+
+function mouseUp(e)
+{
+    if (movingUsingMouse)
+    {
+        main_window.removeEventListener('mousemove', mouseMove);
+        paused = false;
+        tempPosition = 0;
+        movingUsingMouse = false;
+    }
+}
+
+function touchMove(e)
+{
+    if (e.changedTouches[0].pageX > mx) {
+        txtStyler.set('left', tempPosition+=15);
+    } else {
+        txtStyler.set('left', tempPosition-=15);
+    }
+    mx = e.changedTouches[0].pageX;
+}
+
+function touchStart(e)
+{
+    movingUsingTouch = true;
+    paused = true;
+    mx = e.changedTouches[0].pageX;
+    tempPosition = txtStyler.get('left');
+    main_window.addEventListener('touchmove', touchMove);
+}
+
+function touchEnd(e)
+{
+    if (movingUsingTouch)
+    {
+        main_window.removeEventListener('touchmove', touchMove);
+        paused = false;
+        tempPosition = 0;
+        movingUsingTouch = false;
+    }
 }
